@@ -1,0 +1,29 @@
+<nav class="sidebar main" [ngClass]="{ sidebarPushRight: isActive }">
+  <div class="list-group">
+    <div class="nested-menu">
+      <!-- <a class="list-group-item" [routerLinkActive]="['router-link-active']">
+                <div id="triangle-down"></div>
+                <span>General</span>
+            </a> -->
+      <li class="nested expand">
+        <ul class="submenu">
+          <li>
+            <a
+              [routerLink]="['/users']"
+              title="Users"
+              [routerLinkActive]="['router-link-active']"
+            >
+              <img
+                class="icon"
+                src="assets/images/customer-64.png"
+                width="25"
+                style="filter: invert(1)"
+              />
+              <span>Users</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </div>
+</nav>

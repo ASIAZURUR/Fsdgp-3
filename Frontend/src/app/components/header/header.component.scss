@@ -1,0 +1,180 @@
+
+$topnav-background-color: #fff;
+.fixed-top.header{
+    // left:235px;
+    .navbar-brand {
+        width: 235px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.topnav {
+    border-radius: 0;
+    background-color: $topnav-background-color;
+    padding : 6px;
+    z-index:2;
+    .text-center{
+        text-align: center;
+        padding-left : 0;
+        cursor: pointer;
+    }
+    .top-right-nav{
+        .buy-now{
+            a{
+                color:#999;
+            }
+        }
+        .dropdown-menu{
+            top: 40px;
+            right: -5px;
+            left : auto;
+            .message-preview{
+                .media{
+                    .media-body{
+                        .media-heading{
+                            font-size: 14px;
+                            font-weight: bold;
+                            margin-bottom : 0;
+                        }
+                        p{
+                            margin : 0;
+                        }
+                        p.last{
+                            font-size : 13px;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+            hr {
+                margin-top: 1px;
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
+.messages {
+    width: 300px;
+    .media {
+        border-bottom: 1px solid #DDD;
+        padding: 5px 10px;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    .media-body {
+        h5 {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .small {
+            margin: 0;
+        }
+        .last {
+            font-size: 12px;
+            margin: 0;
+        }
+    }
+}
+.header .navbar {
+    background: $topnav-background-color !important;
+    // box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-radius: 0;
+    padding-left: 235px;
+}
+.navbar-light {
+    .navbar-toggler {
+        background: #70bc65 none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 0;
+        cursor: pointer;
+        margin-left: -16px;
+        margin-top: -8px;
+        padding: 16px 9px;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='3' stroke-linecap='squre' stroke-miterlimit='10' d='M4  8h20M4 14h20M4 20h20'/%3E%3C/svg%3E")
+    }
+}
+.userSection {
+    // margin: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    .account-user-name.text-dark {
+        font-size: 14px;
+        font-weight: 800;
+    }
+    .account-role {
+        font-size: 11px;
+        color: gray;
+    }
+}
+div#dropdownMenu1Child{
+    right: 0px;
+    left:initial;
+    top:35px;
+}
+span#dropdownMenu1{
+    display: flex;
+    align-items:center;
+}
+.dropdown-toggle::after{
+    font-size:24px;
+}
+.mobile-menu-button{
+    display: none;
+}
+.navbar-brand .mobile-logo{display: none;}
+
+::ng-deep .mini-sidebar {
+    @media screen and (min-width: 993px) {
+        .header{
+        .navbar{
+            padding-left: 80px !important;
+            .navbar-brand{
+                width: 80px !important;
+                padding: 0 !important;
+                .logo{
+                    width: 75px;
+                    margin: 8px 0;
+                    }
+            }
+        }
+        }
+    }
+}
+@media screen and (max-width:1200px) {
+    .fixed-top.header .navbar{
+        padding-left: 168px;
+           .navbar-brand{
+            width: 168px;
+           }
+       }
+}
+
+@media screen and (max-width: 992px) {
+    .navbar{padding-left: 0 !important;}
+    .navbar-brand .logo{display: none;}
+    .navbar-brand .mobile-logo{display: inline-block;}
+    .navbar-brand {
+        width: 168px !important;
+        margin: 0px 0 -1px !important;
+        position: static !important;
+        padding: 3px 20px !important;
+    }
+}
+
+.btn {
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #000;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    border: 0px;
+    padding: 7px 20px;
+}

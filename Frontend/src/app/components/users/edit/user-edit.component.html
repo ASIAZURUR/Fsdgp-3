@@ -1,0 +1,108 @@
+<div class="top-main-container container-fluid">
+  <div class="row">
+    <div class="col-md-12 pl-3">
+      <h4>Users Edit</h4>
+      <div class="head-bar"></div>
+    </div>
+  </div>
+  <div class="general">
+    <form role="form" [formGroup]="userForm" (submit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-4  mt-4">
+          <fieldset class="form-group">
+            <label>First Name</label><span class="required">*</span>
+            <!-- <input formControlName="firstName" id="firstName" [(ngModel)]="user.firstName" class="form-control" placeholder="First name" /> -->
+            <input formControlName="firstName" id="firstName" class="form-control" placeholder="First Name"
+              [(ngModel)]="firstName" />
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <app-validation [control]="userForm.controls.firstName"></app-validation>
+          </fieldset>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4  mt-4">
+          <fieldset class="form-group">
+            <label>Last Name</label><span class="required">*</span>
+            <!-- <input class="form-control" formControlName="lastName" [(ngModel)]="user.lastName" id="lastName" placeholder="Last name" /> -->
+            <input class="form-control" formControlName="lastName" id="lastName" placeholder="Last Name"
+              [(ngModel)]="lastName" />
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <app-validation [control]="userForm.controls.lastName"></app-validation>
+          </fieldset>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4  mt-4">
+          <fieldset class="form-group">
+            <label>Email</label><span class="required">*</span>
+            <!-- <input class="form-control" formControlName="email" [(ngModel)]="user.email" id="email" placeholder="Email" /> -->
+            <input class="form-control" formControlName="email" id="email" placeholder="Username" [(ngModel)]="email" />
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <app-validation [control]="userForm.controls.email"></app-validation>
+          </fieldset>
+        </div>
+
+
+        <!--div class="col-xs-12 col-md-6 col-lg-4  mt-4">
+              <fieldset class="form-group">
+                <label>Password</label><span class="required">*</span>
+                <input class="form-control" formControlName="password" id="password" placeholder="Password"  type="password" [(ngModel)]="password"/>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <app-validation [control]="userForm.controls.email"></app-validation>
+              </fieldset>
+            </div-->
+
+        <!-- <div class="col-xs-12 col-md-6 col-lg-4  mt-4">
+            <fieldset class="form-group">
+              <label>Bio</label><span class="required">*</span>
+              <div>
+              <textarea id="bio" formControlName="bio" [(ngModel)]="bio" row="4" cols="50"></textarea>
+            </div>
+              <i class="" aria-hidden="true"></i>
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <app-validation [control]="userForm.controls.bio"></app-validation>
+            </fieldset>
+          </div> -->
+      </div>
+      <div class="row">
+        <div class="col-12 mt-3">
+          <!-- <hr> -->
+          <div class="d-flex justify-content-between">
+            <div>
+              <a class=" btn btn-secondary btn-outline-dark bg-light" backButton>
+                <h6 class="text-dark m-0 pr-2 d-flex align-item-center jusify-content-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-arrow-left mr-1">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                  Back
+                </h6>
+              </a>
+              <a class="btn bg-light btn-outline-dark  font-weight-bold  btn-sm pr-3 ml-2"
+                [routerLink]="['/users/',userId,'change-password']">
+                <h6 class="text-dark m-0 pr-2 d-flex align-item-center jusify-content-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-key mr-2">
+                    <path
+                      d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4">
+                    </path>
+                  </svg>
+                  Change Password
+                </h6>
+              </a>
+            </div>
+
+
+            <button type="submit" [disabled]="!userForm.valid" class="btn bg-dark ">
+              <h6 class="text-white m-0 px-2">SUBMIT</h6>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>

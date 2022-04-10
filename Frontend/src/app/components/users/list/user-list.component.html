@@ -1,0 +1,83 @@
+<div class="container-fluid top-main-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center head-main">
+                <h4>Users</h4>
+                <div class="d-inline-flex flex-row">
+                    <a [routerLink]="['/users/create']" class="btn btn-dark-blue text-white btn-sm"><i
+                            class="fa fa-plus-circle text-white mr-2" aria-hidden="true"></i>Add User </a>
+                    <div class="input-group searchBox">
+                        <input type="text" class="form-control" name="searchItem" placeholder="Search"
+                            [(ngModel)]="searchItem" />
+                        <div class="input-group-append" id="button-addon4">
+                            <button class="btn btn-clearDate" id="clearSearch"
+                                (click)="clearSearch($event)">&#10006;</button>
+                            <button class="btn btn-dark btn-search font-weight-bold" (click)="searchUsers()"> <i
+                                    class="uil uil-search"></i> Search</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col col-lg-12">
+            <div class="table-responsive table-y-disable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <!-- <th></th> -->
+                            <th width="10">#</th>
+                            <th>email</th>
+                            <th> </th>
+                            <th> </th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="shownouserFlag && users?.length==0">
+                            <td colspan="4">No user found.</td>
+                        </tr>
+                        <tr *ngFor="let user of users; let i = index">
+
+                      
+                            <td>{{ i+1 }}</td>
+
+                            <td>{{ user.email }}</td>
+      
+                           
+                            <td class="td-edit-icon pr-0">
+                                <a class="btn btn-dark-blue  btn-sm d-inline-flex align-items-center icon-btn"
+                                    [routerLink]="['/users/edit',user.id]">
+                                    <i class="uil uil-edit"></i>
+                                </a>
+                            </td>
+                            <td>
+                                
+
+                                <button class="btn btn-pink btn-sm icon-btn" mwlConfirmationPopover
+                                    (confirm)="deleteUser(user.id)" [popoverTitle]="popoverTitle" placement="left"
+                                    [popoverMessage]="popoverMessage"><i class="uil uil-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="border-top py-3 mt-2" *ngIf="lastPage > 1">
+                    <div *ngIf="lastPage > 1" class="footer-btn-section d-flex justify-content-end align-items-center">
+                        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="3"
+                            [boundaryLinks]="true" [pageSize]="pageSize" (pageChange)="getUserList($event)">
+                        </ngb-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

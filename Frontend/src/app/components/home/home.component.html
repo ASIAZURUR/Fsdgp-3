@@ -1,0 +1,11 @@
+<section [ngClass]="enableCustomClass ? 'mini-sidebar':'max-sidebar' ">
+    <app-header (menuBtnClickedEvent)="toogleClicked($event)"></app-header>
+    <app-sidebar></app-sidebar>
+    <section class="main-container">
+        <section class="inner-content">
+            <router-outlet></router-outlet>
+        </section>
+        <br />
+        <p class="text-white text-12">&copy; Copyright 2022</p>
+    </section>
+</section>

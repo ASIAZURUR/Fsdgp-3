@@ -1,0 +1,75 @@
+<div class="register-page">
+    <div class="register-inner">
+        <div class="logo-sec">
+            <h1>Logo</h1>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <form role="form" [formGroup]="registerForm" (submit)="register()">
+            <div class="form-content">
+                <div class="form-group">
+                    <input type="text" #firstname class="form-control input-underline input-lg" id="firstname"
+                        placeholder="First Name" formControlName="firstName">
+                    <app-validation [control]="registerForm.controls.firstName"></app-validation>
+                </div>
+                <div class="form-group">
+                    <input type="text" #firstname class="form-control input-underline input-lg" id="lastname"
+                        placeholder="Last Name" formControlName="lastName">
+                    <app-validation [control]="registerForm.controls.lastName"></app-validation>
+                </div>
+                <div class="form-group">
+                    <input type="email" #email class="form-control input-underline input-lg" id="email"
+                        placeholder="Enter your email address" formControlName="email">
+                    <app-validation [control]="registerForm.controls.email"></app-validation>
+                    <small class="text-danger" *ngIf="formSubmitted && registerForm.get('email').hasError('pattern')">
+                        Email must be a valid email address
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="text" #phone class="form-control input-underline input-lg" id="phone"
+                        placeholder="Enter your phone number" formControlName="phone">
+                    <app-validation [control]="registerForm.controls.phone"></app-validation>
+                    <small class="text-danger" *ngIf="formSubmitted && registerForm.get('phone').hasError('pattern')">
+                       Phone Number must be 10 digits in xxx-xxx-xxxx,xxx xxx xxxx,xxx.xxx.xxxx format
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="password" #password class="form-control input-underline input-lg" id="password"
+                        placeholder="New password" formControlName="password">
+                    <app-validation [control]="registerForm.controls.password"></app-validation>
+                    <small class="text-danger" *ngIf="formSubmitted && registerForm.get('password').hasError('pattern')">
+                        Password must contain minimum 8 characters, at least one: number and lower-case, upper-case letter(s) 
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="password" #confirmpassword class="form-control input-underline input-lg" id="confirm-password"
+                        placeholder="Confirm password" formControlName="confirmPassword">
+                    <app-validation [control]="registerForm.controls.confirmPassword"></app-validation>
+                </div>
+
+            </div>
+            <div class="form-check my-4 pl-0">
+                <label class="form-check-label checkcontainer  d-inline">
+                  <input class="form-check-input" type="checkbox" formControlName="term_condition" id="policy">
+                  <span class="checkmark"></span>
+                  I agree to the Terms of Service & Privacy Policy
+                </label>
+              </div>
+              <app-validation [control]="registerForm.controls.term_condition"></app-validation>
+            <div class="error-text  text-center">{{errorMessage}}</div>
+           
+            
+            <div class="form-group pb-2 text-right">
+                <a [routerLink]="['/login']" class="">Already have an account? Login</a>
+            </div>
+            <button type="submit" name="register" class="btn rounded-btn">Register</button>
+            
+          
+          
+
+        </form>
+
+    </div>
+    <span class="v-align-middle"></span>
+</div>

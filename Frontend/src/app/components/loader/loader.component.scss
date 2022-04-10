@@ -1,0 +1,33 @@
+.progress-loader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  display: grid ;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.1);
+
+  .sbl-circ {
+    height: 100px;
+    width: 100px;
+    color: #ffff;
+    position: relative;
+    display: inline-block;
+    background-image: url("/assets/images/spinner.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0); }
+    100% {
+      transform: rotate(360deg); }
+    }
+}
