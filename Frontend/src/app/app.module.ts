@@ -1,5 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -36,6 +37,8 @@ import { AuthService } from './services/auth.service';
 import { AuthStorageService } from './services/auth.storage.service';
 import { ValidationService } from './services/validation.service';
 import { RegisterComponent } from './components/register/register.component';
+import { ChatInboxComponent } from './components/chat-inbox/chat-inbox.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -48,9 +51,11 @@ import { RegisterComponent } from './components/register/register.component';
     UserEditComponent,
     UserCreatComponent,
     RegisterComponent,
+    ChatInboxComponent,
   ],
 
   imports: [
+    
     BackButtonDirectiveModule,
     FormsModule,
     AppRoutingModule,

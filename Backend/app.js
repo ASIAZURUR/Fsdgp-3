@@ -9,10 +9,24 @@ const Userdata = require("./src/model/User");
 
 //  app.use(express.static(path.join(__dirname,'static')))
 
-
 // app.use(bodyParser.urlencoded({ extended: true}));
+var http = require('http').createServer(app);
+var io = require('socket.io')(http,{
+  cors:{
+    origin:'*'
+  }
+});
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
+io.on('message', (msg) => {
+  console.log(msg);
+  socket.broadcast.emit('message-broadcast', msg);
+ });
+
 app.use(bodyParser.json());
 app.use(cors());
+
 username='admin@role.com';
 password='1234Group3';
 function verifyToken(req, res, next) {
@@ -104,7 +118,7 @@ app.post("/api/customer/login",(req,res)=>{
         }}
       })
 })
-app.get("/api/customer/me",(req,res)=>{
+app.get("/api/customer/me",verifyToken,(req,res)=>{
   // res.header("Access-Control-Allow-Origin","*")
   // res.header("Access-COntrol-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS")
     // const customer=Userdata.findById(req.user.id)
@@ -130,5 +144,10 @@ console.log(req.user);
 // })
               
 })
+app.get("/api/users",(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
+  res.header('Access-Control-Allow-Methods:GET,PUT,POST,PATCH,DELETE,OPTIONS');
 
-app.listen(3001)
+   res.send({data:'hi'})})
+
+http.listen(3001)

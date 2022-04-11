@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../../guards/auth.guard';
+import { ChatInboxComponent } from '../chat-inbox/chat-inbox.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { UserCreatComponent } from '../users/create/user-create.component';
 import { UserEditComponent } from '../users/edit/user-edit.component';
@@ -22,7 +23,7 @@ import { HomeComponent } from './home.component';
           { path: 'users', component: UserListComponent },
           { path: 'users/edit/:id', component: UserEditComponent },
           { path: 'users/create', component: UserCreatComponent },
-
+          {path:'users/chat',component:ChatInboxComponent},
           {
             path: '**',
             canActivate: [AuthGuard],
